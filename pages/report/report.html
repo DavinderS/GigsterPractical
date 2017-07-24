@@ -1,0 +1,30 @@
+<div class="container gridContainer">
+
+    <button class="btn btn-default pull-right" ng-click="logOut()">Log Out</button>
+    <div class="dateLabel">Show data for past <input class="input-sm" type="number" ng-model="weeks"> weeks <button class="btn btn-sm btn-default" ng-click="refresh()">Refresh</button></div>
+
+    <table lg-grid class="table table-striped " model="model">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Weeks Ago</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr lg-row>
+                <td width="50%">
+                    <div lg-view>{{ row.data.amount }}</div>
+                    <div lg-view="edit">
+                        <input type="number" ng-model="row.viewModel.amount" class="form-control input-sm">
+                    </div>
+                </td>
+                <td width="50%">
+                    <div lg-view>{{ row.data.week }}</div>
+                    <div lg-view="edit">
+                        <input type="text" ng-model="row.viewModel.description" class="form-control input-sm">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

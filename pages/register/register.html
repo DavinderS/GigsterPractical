@@ -1,0 +1,14 @@
+<form class="formContainer text-center">
+<h3>Register</h3>
+<div class="inputContainer"><div class="inputLabel">Username (Max 30 char)</div><input type="text" ng-model="userName"></div>
+<div class="inputContainer"><div class="inputLabel">Password (Max 30 char)</div><input type="password" ng-model="password"></div>
+<div class="inputContainer"><div class="inputLabel">Account type</div>
+<select ng-model="admin">
+      <option value="0">Regular User</option>
+      <option value="1">Administrator</option>
+</select></div>
+<div class="inputContainer">
+<button type="submit" class="btn btn-default" ng-click="register()">Register</button>
+<a class="btn btn-default" href="/">Back</a>
+</div>
+</form>

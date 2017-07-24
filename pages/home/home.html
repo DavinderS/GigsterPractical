@@ -1,0 +1,56 @@
+<div class="container gridContainer">
+    <button class="btn btn-default" ng-click="showNewExpenseContainer()">Create New</button>
+    <a class="btn btn-default" href="report">View Reports</a>
+
+    <button class="btn btn-default pull-right" ng-click="logOut()">Log Out</button>
+    <div class="newExpenseContainer" ng-show="expenseContainerOpen">
+        <input class="newExpense input-sm" type="number" ng-model="newExpenseAmount">
+        <input class="newExpense input-sm" type="text" ng-model="newExpenseDescription">
+        <input class="newExpense input-sm newExpenseDatetime" type="datetime-local" ng-model="newExpenseDatetime">
+        <button class="btn btn-default btn-primary btn-sm" ng-click="createNewExpense()">Save</button>
+        <button class="btn btn-default btn-sm" ng-click="hideNewExpenseContainer()">Cancel</button>
+    </div>
+    <table lg-grid class="table table-striped " model="model">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr lg-row>
+                <td width="20%">
+                    <div lg-view>{{ row.data.amount }}</div>
+                    <div lg-view="edit">
+                        <input type="number" ng-model="row.viewModel.amount" class="form-control input-sm">
+                    </div>
+                </td>
+                <td width="20%">
+                    <div lg-view>{{ row.data.description }}</div>
+                    <div lg-view="edit">
+                        <input type="text" ng-model="row.viewModel.description" class="form-control input-sm">
+                    </div>
+                </td>
+
+                <td width="20%">
+                    <div lg-view>{{ row.data.dateCreated }}</div>
+                    <div lg-view="edit">
+                        <input type="datetime-local" ng-model="row.viewModel.dateCreated" class="form-control input-sm">
+                    </div>
+                </td>
+                <td width="40%">
+                    <div ng-hide="userid!=row.data.userId" lg-view>
+                        <button class="btn btn-default btn-sm" lg-switch-view="edit">Edit</button>
+                    </div>
+                    <div lg-view="edit">
+                        <button class="btn btn-primary btn-sm" ng-click="save(row.viewModel);">Save</button>
+                        <button class="btn btn-default btn-sm" lg-switch-view="read">Cancel</button>
+                        <button class="btn btn-danger btn-sm" ng-click="delete(row.viewModel.expenseId);">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

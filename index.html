@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gigster Practical Test</title>
+  <base href="/">
+  <!-- Light grid requires Jquery -->
+  <script src="Dependencies/jquery/jquery.js"></script>
+  <script src="Dependencies/angular/angular.min.js"></script>
+  <script src="Dependencies/angular/angular-route.min.js"></script>
+  <script src="Dependencies/light-grid/light-grid.js"></script>
+
+  <script src="index.js"></script>
+
+  <script src="pages/login/loginController.js"></script>
+  <script src="pages/register/registerController.js"></script>
+  <script src="pages/home/homeController.js"></script>
+  <script src="pages/report/ReportController.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="Dependencies/bootstrap/bootstrap.min.css">
+</head>
+<body ng-app="expenseModule">
+  <h1>Gigster Practical</h1>
+  <div ng-view></div>
+</body>
+</html>
