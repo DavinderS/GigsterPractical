@@ -33,6 +33,7 @@ module.controller('reportController', ['$scope', '$http', '$location', function(
         }, function onError(response) {
             console.log("Failed to load expenses");
         })
+
         $scope.refresh = function() {
             $scope.model = [];
             for (j in amountPerWeekDict) {
@@ -46,6 +47,10 @@ module.controller('reportController', ['$scope', '$http', '$location', function(
             }
         }
     } else {
+        $location.path('/');
+    }
+    $scope.logOut = function() {
+        sessionStorage.clear();
         $location.path('/');
     }
 }]);
